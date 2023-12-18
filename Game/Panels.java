@@ -13,19 +13,19 @@ import Game.RockPaperScissors;
 
 class Panels extends JPanel 
 {
-	// ÆĞ³ÎµéÀ» ´ãÀ» cardLayout·ÎµÈ ÀüÃ¼ ÆĞ³Î °´Ã¼¸¦ »ı¼º //
+	// íŒ¨ë„ë“¤ì„ ë‹´ì„ cardLayoutë¡œëœ ì „ì²´ íŒ¨ë„ ê°ì²´ë¥¼ ìƒì„± //
 	JPanel cards = new JPanel(new CardLayout());
-	// ÀüÃ¼ ÆĞ³Î °´Ã¼¿¡ ´ëÇÑ ¸Ş¼­µå¸¦ È°¿ëÇÏ±â À§ÇØ º¯¼ö¿¡ ´ëÀÔ //
+	// ì „ì²´ íŒ¨ë„ ê°ì²´ì— ëŒ€í•œ ë©”ì„œë“œë¥¼ í™œìš©í•˜ê¸° ìœ„í•´ ë³€ìˆ˜ì— ëŒ€ì… //
 	CardLayout deck = (CardLayout) cards.getLayout();
 	
 	public Panels () 
 	{
 
-	// panel1 ·¹ÆÛ·±½º º¯¼ö page1 °´Ã¼ »ı¼º //
+	// panel1 ë ˆí¼ëŸ°ìŠ¤ ë³€ìˆ˜ page1 ê°ì²´ ìƒì„± //
 	panel1 page1 = new panel1();
-	// ÀüÃ¼ ÆĞ³Î¿¡ page1 Ãß°¡ //
+	// ì „ì²´ íŒ¨ë„ì— page1 ì¶”ê°€ //
 	cards.add(page1, "panel1");
-	// ÀÚ±â ÀÚ½Å(°´Ã¼)¿¡ Ãß°¡ //
+	// ìê¸° ìì‹ (ê°ì²´)ì— ì¶”ê°€ //
 	add(cards);
 	
 	panel2 page2 = new panel2();
@@ -83,37 +83,38 @@ class Panels extends JPanel
 		
 		public panel1() 
 		{
-			// ÄÄÆ÷³ÍÆ®¸¦ Á÷Á¢ ¹èÄ¡ÇÏ±â À§ÇØ null·Î ·¹ÀÌ¾Æ¿ô ¼³Á¤ //
+			// ì»´í¬ë„ŒíŠ¸ë¥¼ ì§ì ‘ ë°°ì¹˜í•˜ê¸° ìœ„í•´ nullë¡œ ë ˆì´ì•„ì›ƒ ì„¤ì • //
 			setLayout(null);
 		    setBackground (Color.black);
-		    // ÆĞ³Î È­¸é Å©±â ¼³Á¤ //
+		    // íŒ¨ë„ í™”ë©´ í¬ê¸° ì„¤ì • //
 			int width = 1320;
 			int height = 750;
 			setPreferredSize (new Dimension(width, height));
 			
-			// ÀÚ±â ÀÚ½Å ÆĞ³Î(°´Ã¼)¿¡ ÄÄÆ÷³ÍÆ®µé ºÎÂø//
+			// ìê¸° ìì‹  íŒ¨ë„(ê°ì²´)ì— ì»´í¬ë„ŒíŠ¸ë“¤ ë¶€ì°©//
 		    ImageIcon graduation = new ImageIcon ("./src/image/Graduation.png");
 		    JLabel Label2 = new JLabel (graduation);
 		    Label2.setBounds(520, 2, 250, 250);
 		    add(Label2);
 
-		    ImageIcon title = new ImageIcon ("./src/image/Å¸ÀÌÆ².png");
-		    JLabel Label4 = new JLabel (title);
-		    Label4.setBounds(180, 180, 900, 400);
-		    add(Label4);
+		    JLabel label = new JLabel("<html>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+		    		+ "<I>ìˆ˜ë­‰ì´ì˜<br><I>ì¡¸ì—…ì¥ì„ ì°¾ì•„ë¼");
+		    label.setForeground(Color.white);
+		    label.setBounds(240, 250, 900, 300);
+		    label.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,120));
+			add(label);
 		   
 		    JButton next = new JButton("Game Start!");
 		    next.addActionListener (this);	
 
 			next.setPreferredSize(new Dimension(50, 50));
 			next.setBounds(530, 550, 200, 50);
-			next.setFont(new Font("¸ğ¸®½º9",Font.BOLD,30));
-			
+			next.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,30));
 			add(next);
 				
 
 		}
-			// »ç¿ëÀÚ°¡ ¹öÆ°À» ´©¸£¸é next ¸Ş¼­µå¸¦ ÀÌ¿ë ´ÙÀ½ ÆäÀÌÁö·Î ÀÌµ¿ //
+			// ì‚¬ìš©ìê°€ ë²„íŠ¼ì„ ëˆ„ë¥´ë©´ next ë©”ì„œë“œë¥¼ ì´ìš© ë‹¤ìŒ í˜ì´ì§€ë¡œ ì´ë™ //
 				public void actionPerformed (ActionEvent event) 	
 				{
 					deck.next(cards);	
@@ -130,13 +131,13 @@ class Panels extends JPanel
 			        setLayout(null);
 			        
 					setBackground (Color.black);
-					JLabel label1 = new JLabel("<html>Àç¹Õ°í Èûµé¾ú´ø ÇĞ±³ »ıÈ°À» ¸¶Ä£<br>"
-							+ "<html>¼ö¹¶ÀÌ´Â µåµğ¾î Á¹¾÷¿¡ ¼º°øÇß´Ù!!<br>"
-							+ "<html>±×·±µ¥ ÀÌ°Ô À¢°É?! ¾Æ¹«¸® Ã£¾ÆºÁµµ Á¹¾÷ÀåÀÌ º¸ÀÌÁö ¾Ê´Â´Ù<br>"
-							+ "<html>±â¾ïÀ» µÇµë¾îº¸´ø ¼ö¹¶ÀÌ´Â ¹«¾ğ°¡ ¶°¿À¸¥ µí ¾îµò°¡·Î ´Ş·Á°£´Ù<br>"
-							+ "<html>Áö±İºÎÅÍ ¼ö¹¶ÀÌÀÇ ÀÒ¾î¹ö¸° Á¹¾÷ÀåÀ» Ã£´Â ¿©ÇàÀÌ ½ÃÀÛµÈ´Ù!!<br>");
+					JLabel label1 = new JLabel("<html>ì¬ë°Œê³  í˜ë“¤ì—ˆë˜ í•™êµ ìƒí™œì„ ë§ˆì¹œ<br>"
+							+ "<html>ìˆ˜ë­‰ì´ëŠ” ë“œë””ì–´ ì¡¸ì—…ì— ì„±ê³µí–ˆë‹¤!!<br>"
+							+ "<html>ê·¸ëŸ°ë° ì´ê²Œ ì›¬ê±¸?! ì•„ë¬´ë¦¬ ì°¾ì•„ë´ë„ ì¡¸ì—…ì¥ì´ ë³´ì´ì§€ ì•ŠëŠ”ë‹¤<br>"
+							+ "<html>ê¸°ì–µì„ ë˜ë“¬ì–´ë³´ë˜ ìˆ˜ë­‰ì´ëŠ” ë¬´ì–¸ê°€ ë– ì˜¤ë¥¸ ë“¯ ì–´ë”˜ê°€ë¡œ ë‹¬ë ¤ê°„ë‹¤<br>"
+							+ "<html>ì§€ê¸ˆë¶€í„° ìˆ˜ë­‰ì´ì˜ ìƒì–´ë²„ë¦° ì¡¸ì—…ì¥ì„ ì°¾ëŠ” ì—¬í–‰ì´ ì‹œì‘ëœë‹¤!!<br>");
 					label1.setForeground(Color.white);
-					label1.setFont(new Font("¸ğ¸®½º9",Font.BOLD,35));
+					label1.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,35));
 					label1.setBounds(50, -180, 1200, 700);
 					add(label1);
 					
@@ -155,7 +156,7 @@ class Panels extends JPanel
 
 					next.setPreferredSize(new Dimension(50, 50));
 					next.setBounds(530, 550, 200, 50);
-					next.setFont(new Font("¸ğ¸®½º9",Font.BOLD,30));
+					next.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,30));
 					
 					add(next);
 					
@@ -178,17 +179,17 @@ class Panels extends JPanel
 			        setLayout(null);
 			        
 					setBackground (Color.black);
-					JLabel label1 = new JLabel("<html>[ÇÏÀÌ¸®¿Â]: ¹¹¶ó°í?! Á¹¾÷ÀåÀ» ÀÒ¾î¹ö·È´Ù°í?!<br>"
-							+ "<html>[ÇÏÀÌ¸®¿Â]: Èì.. ¾Æ ¸Â´Ù! Àú¹ø¿¡ ´Ï Á¹¾÷Àå ???°¡ µé°í °¬¾úÀİ¾Æ<br>"
-							+ "<html>[ÇÏÀÌ¸®¿Â]: ¼³¸¶ ¸ÇÀÔÀ¸·Î ¾Ë·Á´Ş¶ó´Â °Ç ¾Æ´ÏÁö?<br>"
-							+ "<html>[ÇÏÀÌ¸®¿Â]: ÁÁ¾Æ ÀÌ¹ø °ÔÀÓÀ» Å¬¸®¾îÇÏ¸é ???¸¦ ¾Ë·ÁÁÖÁö <br>"
-							+ "<html>[ÇÏÀÌ¸®¿Â]: °ÔÀÓ ½ÃÀÛÀÌ´Ù À¸¸£··!!<br>");
+					JLabel label1 = new JLabel("<html>[í•˜ì´ë¦¬ì˜¨]: ë­ë¼ê³ ?! ì¡¸ì—…ì¥ì„ ìƒì–´ë²„ë ¸ë‹¤ê³ ?!<br>"
+							+ "<html>[í•˜ì´ë¦¬ì˜¨]: í .. ì•„ ë§ë‹¤! ì €ë²ˆì— ë‹ˆ ì¡¸ì—…ì¥ ???ê°€ ë“¤ê³  ê°”ì—ˆì–ì•„<br>"
+							+ "<html>[í•˜ì´ë¦¬ì˜¨]: ì„¤ë§ˆ ë§¨ì…ìœ¼ë¡œ ì•Œë ¤ë‹¬ë¼ëŠ” ê±´ ì•„ë‹ˆì§€?<br>"
+							+ "<html>[í•˜ì´ë¦¬ì˜¨]: ì¢‹ì•„ ì´ë²ˆ ê²Œì„ì„ í´ë¦¬ì–´í•˜ë©´ ???ë¥¼ ì•Œë ¤ì£¼ì§€ <br>"
+							+ "<html>[í•˜ì´ë¦¬ì˜¨]: ê²Œì„ ì‹œì‘ì´ë‹¤ ìœ¼ë¥´ë !!<br>");
 					label1.setForeground(Color.white);
-					label1.setFont(new Font("¸ğ¸®½º9",Font.BOLD,35));
+					label1.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,35));
 					label1.setBounds(50, -180, 1200, 700);
 					add(label1);
 					
-					ImageIcon hilion = new ImageIcon ("./src/image/ÇÑ¾ç´ë ÇÏÀÌ¸®¿Â2.png");
+					ImageIcon hilion = new ImageIcon ("./src/image/í•œì–‘ëŒ€ í•˜ì´ë¦¬ì˜¨2.png");
 					JLabel Label2 = new JLabel (hilion);
 					Label2.setBounds(750, 200, 500, 500);
 					add(Label2);
@@ -198,7 +199,7 @@ class Panels extends JPanel
 
 					next.setPreferredSize(new Dimension(50, 50));
 					next.setBounds(530, 550, 200, 50);
-					next.setFont(new Font("¸ğ¸®½º9",Font.BOLD,30));
+					next.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,30));
 					
 					add(next);
 					
@@ -215,91 +216,91 @@ class Panels extends JPanel
 	public class panel4 extends JPanel implements ActionListener  
 	{
 		/** 
-		 * °¡À§¹ÙÀ§º¸ °ÔÀÓ  
+		 * ê°€ìœ„ë°”ìœ„ë³´ ê²Œì„  
 		 */	
 		protected RockPaperScissors game;
 		/** 
-		 * Å¸ÀÌ¸Ó  
+		 * íƒ€ì´ë¨¸  
 		 */	
 		private   Timer timer;
 		
 		/** 
-		 * °¡À§¹ÙÀ§º¸ Âü¿©ÀÚ   
+		 * ê°€ìœ„ë°”ìœ„ë³´ ì°¸ì—¬ì   
 		 */	
 		protected int[] playerA;
 		/** 
-		 * °¡À§¹ÙÀ§º¸ »ó´ëÆí   
+		 * ê°€ìœ„ë°”ìœ„ë³´ ìƒëŒ€í¸   
 		 */	
 		protected int[] playerB;
 
 		/** 
-		 * °¡À§¹ÙÀ§º¸ Âü¿©ÀÚÀÇ ¼±ÅÃ °á°ú¸¦ ÀÌ¹ÌÁö·Î Ç¥Çö    
+		 * ê°€ìœ„ë°”ìœ„ë³´ ì°¸ì—¬ìì˜ ì„ íƒ ê²°ê³¼ë¥¼ ì´ë¯¸ì§€ë¡œ í‘œí˜„    
 		 */	
 		protected JLabel imgPlayerA;
 		/** 
-		 * °¡À§¹ÙÀ§º¸ »ó´ëÆíÀÇ ¼±ÅÃ °á°ú¸¦ ÀÌ¹ÌÁö·Î Ç¥Çö  
+		 * ê°€ìœ„ë°”ìœ„ë³´ ìƒëŒ€í¸ì˜ ì„ íƒ ê²°ê³¼ë¥¼ ì´ë¯¸ì§€ë¡œ í‘œí˜„  
 		 */	
 		protected JLabel imgPlayerB;
 
 		/** 
-		 * °¡À§¹ÙÀ§º¸ Âü¿©ÀÚ¿Í »ó´ëÆíÀÇ »óÅÂ¸¦ ¹®ÀÚ¿­·Î Ç¥Çö      
+		 * ê°€ìœ„ë°”ìœ„ë³´ ì°¸ì—¬ìì™€ ìƒëŒ€í¸ì˜ ìƒíƒœë¥¼ ë¬¸ìì—´ë¡œ í‘œí˜„      
 		 */	
 		protected JLabel strPlayer1;
 		protected JLabel strPlayer2;
 
 		/** 
-		 * °¡À§¹ÙÀ§º¸ ¹öÆ°      
+		 * ê°€ìœ„ë°”ìœ„ë³´ ë²„íŠ¼      
 		 */	
 		protected JButton[] button;	
 		/** 
-		 * °¡À§¹ÙÀ§º¸ 3°¡Áö, ¹Ì¼±ÅÃ 1°¡Áö, ½ÂÆĞ 2°¡Áö¸¦ 2Â÷¿ø ¹è¿­·Î °í·ÁÇÏ¿© ÃÑ 8(=(3+1)*2)°¡Áö °æ¿ìÀÇ ÀÌ¹ÌÁö¸¦ ÁØºñ      
+		 * ê°€ìœ„ë°”ìœ„ë³´ 3ê°€ì§€, ë¯¸ì„ íƒ 1ê°€ì§€, ìŠ¹íŒ¨ 2ê°€ì§€ë¥¼ 2ì°¨ì› ë°°ì—´ë¡œ ê³ ë ¤í•˜ì—¬ ì´ 8(=(3+1)*2)ê°€ì§€ ê²½ìš°ì˜ ì´ë¯¸ì§€ë¥¼ ì¤€ë¹„      
 		 */	
 		protected ImageIcon[][] image;
 		
 		/** 
-		 * °¡À§¹ÙÀ§º¸ ±âº» ÀÌ¹ÌÁö »ó¼ö 
+		 * ê°€ìœ„ë°”ìœ„ë³´ ê¸°ë³¸ ì´ë¯¸ì§€ ìƒìˆ˜ 
 		 */	
 		protected final int BASE = 0;
 		/** 
-		 * °¡À§¹ÙÀ§º¸ ÀÌ°åÀ» ¶§ ÀÌ¹ÌÁö »ó¼ö  
+		 * ê°€ìœ„ë°”ìœ„ë³´ ì´ê²¼ì„ ë•Œ ì´ë¯¸ì§€ ìƒìˆ˜  
 		 */	
 		protected final int WIN = 1;
 		/** 
-		 * °¡À§¹ÙÀ§º¸ ´ë±âÁß ¹°À½Ç¥ ÀÌ¹ÌÁö »ó¼ö   
+		 * ê°€ìœ„ë°”ìœ„ë³´ ëŒ€ê¸°ì¤‘ ë¬¼ìŒí‘œ ì´ë¯¸ì§€ ìƒìˆ˜   
 		 */	
 		protected final int QUESTIONMARK = 3;
 
 		/**
-		 * °¡À§¹ÙÀ§º¸ GUI ÆĞ³Î ÃÊ±âÈ­ 
+		 * ê°€ìœ„ë°”ìœ„ë³´ GUI íŒ¨ë„ ì´ˆê¸°í™” 
 		 */
 		
-		// ¸ñ¼û life º¯¼ö //
+		// ëª©ìˆ¨ life ë³€ìˆ˜ //
 		protected int life = 10;
-		// ½Â¸® win º¯¼ö //
+		// ìŠ¹ë¦¬ win ë³€ìˆ˜ //
 		protected int win = 0;
-		// ¸ñ¼û(³²Àº ±âÈ¸)À» ³ªÅ¸³»±â À§ÇØ //
+		// ëª©ìˆ¨(ë‚¨ì€ ê¸°íšŒ)ì„ ë‚˜íƒ€ë‚´ê¸° ìœ„í•´ //
 		protected JLabel label3;
-		// ½Â¸® È½¼ö¸¦ ³ªÅ¸³»±â À§ÇØ //
+		// ìŠ¹ë¦¬ íšŸìˆ˜ë¥¼ ë‚˜íƒ€ë‚´ê¸° ìœ„í•´ //
 		protected JLabel label4;
 		
 		
 		public panel4() 
 		{
-			// È­¸é¿¡ ¸Â°Ô ÇÏ±â À§ÇØ Àç¹èÄ¡ //
+			// í™”ë©´ì— ë§ê²Œ í•˜ê¸° ìœ„í•´ ì¬ë°°ì¹˜ //
 			setLayout(null);
 		        
 			setBackground (Color.black);
-			// °¡À§¹ÙÀ§º¸ °ÔÀÓ ÃÊ±âÈ­ 
+			// ê°€ìœ„ë°”ìœ„ë³´ ê²Œì„ ì´ˆê¸°í™” 
 			this.game = new RockPaperScissors();
-			// °¡À§¹ÙÀ§º¸ ¼±ÅÃ ÈÄ Àá±ñ 1ÃÊ ½¬¾ú´Ù°¡ Àç½ÃÀÛÇÒ ¼ö ÀÖµµ·Ï Å¸ÀÌ¸Ó ¼³Á¤  
+			// ê°€ìœ„ë°”ìœ„ë³´ ì„ íƒ í›„ ì ê¹ 1ì´ˆ ì‰¬ì—ˆë‹¤ê°€ ì¬ì‹œì‘í•  ìˆ˜ ìˆë„ë¡ íƒ€ì´ë¨¸ ì„¤ì •  
 			this.timer = new Timer( 1000, new TimerListener() );
 			
-			// Âü¿©ÀÚ¿Í »ó´ëÆíÀÇ °¡À§¹ÙÀ§º¸ ¼±ÅÃ °á°ú ¹× ½ÂÆĞÀÇ 2°¡Áö Á¤º¸¸¦ ÀúÀå 
+			// ì°¸ì—¬ìì™€ ìƒëŒ€í¸ì˜ ê°€ìœ„ë°”ìœ„ë³´ ì„ íƒ ê²°ê³¼ ë° ìŠ¹íŒ¨ì˜ 2ê°€ì§€ ì •ë³´ë¥¼ ì €ì¥ 
 			this.playerA = new int[2];
 			this.playerB = new int[2];
 			this.playerA[0] = this.playerB[0] = game.SCISSORS;
 			this.playerA[1] = this.playerB[1] = BASE;
-			// °¡À§¹ÙÀ§º¸ 3°¡Áö, ¹Ì¼±ÅÃ 1°¡Áö, ½ÂÆĞ 2°¡Áö¸¦ 2Â÷¿ø ¹è¿­·Î °í·ÁÇÏ¿© ÃÑ 8(=(3+1)*2)°¡Áö °æ¿ìÀÇ ÀÌ¹ÌÁö¸¦ ÁØºñ 
+			// ê°€ìœ„ë°”ìœ„ë³´ 3ê°€ì§€, ë¯¸ì„ íƒ 1ê°€ì§€, ìŠ¹íŒ¨ 2ê°€ì§€ë¥¼ 2ì°¨ì› ë°°ì—´ë¡œ ê³ ë ¤í•˜ì—¬ ì´ 8(=(3+1)*2)ê°€ì§€ ê²½ìš°ì˜ ì´ë¯¸ì§€ë¥¼ ì¤€ë¹„ 
 			final String imgPath = "./src/rockPaperScissors/image/";
 			image = new ImageIcon[4][2];
 			final String pathImgScissors = imgPath + "scissors.gif";
@@ -318,9 +319,9 @@ class Panels extends JPanel
 			image[game.PAPER][BASE] = new ImageIcon( new ImageIcon( pathImgPaper ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) );
 			image[game.PAPER][WIN] = new ImageIcon( new ImageIcon( pathImgPaperWin ).getImage().getScaledInstance( 200, 200, Image.SCALE_SMOOTH ) );
 				
-			// Âü¿©ÀÚ¿Í »ó´ëÆíÀÇ °¡À§¹ÙÀ§º¸ ÀÌ¹ÌÁö È­¸é ÃÊ±âÈ­ 
-			strPlayer1 = new JLabel( "<html><br><br>[ÇÏÀÌ¸®¿Â]", JLabel.CENTER );
-			strPlayer2 = new JLabel( "<html><br><br>[¼ö¹¶ÀÌ]", JLabel.CENTER );
+			// ì°¸ì—¬ìì™€ ìƒëŒ€í¸ì˜ ê°€ìœ„ë°”ìœ„ë³´ ì´ë¯¸ì§€ í™”ë©´ ì´ˆê¸°í™” 
+			strPlayer1 = new JLabel( "<html><br><br>[í•˜ì´ë¦¬ì˜¨]", JLabel.CENTER );
+			strPlayer2 = new JLabel( "<html><br><br>[ìˆ˜ë­‰ì´]", JLabel.CENTER );
 			strPlayer1.setForeground(Color.white);
 			strPlayer2.setForeground(Color.white);
 			imgPlayerA = new JLabel( image[QUESTIONMARK][BASE] );
@@ -335,7 +336,7 @@ class Panels extends JPanel
 			add( strPlayer2 );
 			add( imgPlayerA );
 
-			// °¡À§¹ÙÀ§º¸ ÀÔ·Â ¹öÆ° 3°³ ÃÊ±âÈ­  
+			// ê°€ìœ„ë°”ìœ„ë³´ ì…ë ¥ ë²„íŠ¼ 3ê°œ ì´ˆê¸°í™”  
 			button = new JButton[3];
 			button[game.SCISSORS] = new JButton( new ImageIcon( image[game.SCISSORS][BASE].getImage().getScaledInstance( 50, 50, Image.SCALE_SMOOTH ) ) );
 			button[game.SCISSORS].addActionListener( this ); 
@@ -354,38 +355,38 @@ class Panels extends JPanel
 			add( button[game.ROCK] );
 			add( button[game.PAPER] );
 			
-			JLabel label1 = new JLabel("<html>STAGE1: °¡À§¹ÙÀ§º¸ °ÔÀÓ<br><br>");
+			JLabel label1 = new JLabel("<html>STAGE1: ê°€ìœ„ë°”ìœ„ë³´ ê²Œì„<br><br>");
 			label1.setForeground(Color.white);
-			label1.setFont(new Font("¸ğ¸®½º9",Font.BOLD,30));
+			label1.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,30));
 			label1.setBounds(500, -300, 1200, 700);
 			add(label1);
 			
-			JLabel label2 = new JLabel( "<html>°ÔÀÓ ¹æ¹ı: ÇÏÀÌ¸®¿Â°ú °¡À§¹ÙÀ§º¸¸¦ ÇØ¼­ <br>"
+			JLabel label2 = new JLabel( "<html>ê²Œì„ ë°©ë²•: í•˜ì´ë¦¬ì˜¨ê³¼ ê°€ìœ„ë°”ìœ„ë³´ë¥¼ í•´ì„œ <br>"
 					+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 					+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-					+ "<html> &nbsp;&nbsp&nbsp;4¹øÀ» ÀÌ±â¸é Å¬¸®¾î!<br>"
+					+ "<html> &nbsp;&nbsp&nbsp;4ë²ˆì„ ì´ê¸°ë©´ í´ë¦¬ì–´!<br>"
 					+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 					+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-					+ "<html> &nbsp;&nbsp&nbsp;¸ñ¼ûÀº ÃÑ 10!<br>"
+					+ "<html> &nbsp;&nbsp&nbsp;ëª©ìˆ¨ì€ ì´ 10!<br>"
 		         	+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 		          	+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-		        	+ "<html> &nbsp;&nbsp&nbsp;Áú ¶§¸¶´Ù 1¾¿ Â÷°¨!<br>");
+		        	+ "<html> &nbsp;&nbsp&nbsp;ì§ˆ ë•Œë§ˆë‹¤ 1ì”© ì°¨ê°!<br>");
 			label2.setForeground(Color.white);
-			label2.setFont(new Font("¸ğ¸®½º9",Font.BOLD,25));
+			label2.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,25));
 			label2.setBounds(50, -250, 1200, 700);
 			add(label2);
 			
-			// ³²Àº ±âÈ¸¸¦ È®ÀÎÇÒ ¼ö ÀÖ°Ô ÅØ½ºÆ® ¶óº§ ¹èÄ¡ //
+			// ë‚¨ì€ ê¸°íšŒë¥¼ í™•ì¸í•  ìˆ˜ ìˆê²Œ í…ìŠ¤íŠ¸ ë¼ë²¨ ë°°ì¹˜ //
 			label4 = new JLabel("life: " + life );
 			label4.setForeground(Color.white);
-			label4.setFont(new Font("¸ğ¸®½º9",Font.BOLD,50));
+			label4.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,50));
 			label4.setBounds(1106, 10, 300, 100);
 			add(label4);
 
-			// ½Â¸® È½¼ö¸¦ È®ÀÎÇÒ ¼ö ÀÖ°Ô ÅØ½ºÆ® ¶óº§ ¹èÄ¡ //
+			// ìŠ¹ë¦¬ íšŸìˆ˜ë¥¼ í™•ì¸í•  ìˆ˜ ìˆê²Œ í…ìŠ¤íŠ¸ ë¼ë²¨ ë°°ì¹˜ //
 			label3 = new JLabel("win: " + win );
 			label3.setForeground(Color.white);
-			label3.setFont(new Font("¸ğ¸®½º9",Font.BOLD,50));
+			label3.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,50));
 			label3.setBounds(1100, 60, 300, 100);
 			add(label3);
 
@@ -394,9 +395,9 @@ class Panels extends JPanel
 		}
 
 		/**
-		 * Âü¿©ÀÚ°¡ ¹öÆ°À» ´­·¯¼­ ¼±ÅÃÇÑ °¡À§¹ÙÀ§º¸ °á°ú¸¦ intÇü ÀÚ·á·Î º¯È¯
-		 * @param event ¹öÆ°À» ´­·¯¼­ ¼±ÅÃÇÑ °á°ú 
-		 * @return °¡À§¹ÙÀ§º¸ ¼±ÅÃ °á°ú 
+		 * ì°¸ì—¬ìê°€ ë²„íŠ¼ì„ ëˆŒëŸ¬ì„œ ì„ íƒí•œ ê°€ìœ„ë°”ìœ„ë³´ ê²°ê³¼ë¥¼ intí˜• ìë£Œë¡œ ë³€í™˜
+		 * @param event ë²„íŠ¼ì„ ëˆŒëŸ¬ì„œ ì„ íƒí•œ ê²°ê³¼ 
+		 * @return ê°€ìœ„ë°”ìœ„ë³´ ì„ íƒ ê²°ê³¼ 
 		 */
 		protected int selectRockPaperScissors( ActionEvent event )
 		{
@@ -409,19 +410,19 @@ class Panels extends JPanel
 		}
 		
 		/**
-		 * °¡À§¹ÙÀ§º¸ ¼±ÅÃ °á°ú¸¦ ºĞ¼®ÇÏ¿© ´©°¡ ÀÌ°å´ÂÁö Ç¥±â
+		 * ê°€ìœ„ë°”ìœ„ë³´ ì„ íƒ ê²°ê³¼ë¥¼ ë¶„ì„í•˜ì—¬ ëˆ„ê°€ ì´ê²¼ëŠ”ì§€ í‘œê¸°
 		 */
 		protected void setGameResult() 
 		{
 			String result = game.judge( playerA[0], playerB[0] );
-			if ( result.contains( "Âü¿©ÀÚ°¡ ÀÌ°å½À´Ï´Ù" ) )
-			{ 	// »ç¿ëÀÚ°¡ ÀÌ±æ °æ¿ì ½Â¸® È½¼ö ¾÷µ¥ÀÌÆ®// 
+			if ( result.contains( "ì°¸ì—¬ìê°€ ì´ê²¼ìŠµë‹ˆë‹¤" ) )
+			{ 	// ì‚¬ìš©ìê°€ ì´ê¸¸ ê²½ìš° ìŠ¹ë¦¬ íšŸìˆ˜ ì—…ë°ì´íŠ¸// 
 				win++;
 				label3.setText("win: "+ win);
 				playerA[1] = WIN;
 				playerB[1] = BASE;
 			} 
-			else if ( result.contains( "»ó´ëÆíÀÌ ÀÌ°å½À´Ï´Ù" ) )
+			else if ( result.contains( "ìƒëŒ€í¸ì´ ì´ê²¼ìŠµë‹ˆë‹¤" ) )
 			{ 			
 				playerA[1] = BASE;
 				playerB[1] = WIN;
@@ -434,35 +435,35 @@ class Panels extends JPanel
 		} 
 			
 		/**
-		 * Âü¿©ÀÚ°¡ °¡À§¹ÙÀ§º¸¸¦ ¼±ÅÃ½Ã »ó´ëÆí ¼±ÅÃ°ú ºñ±³ÇÏ¿© ½ÂÆĞ °á°ú¸¦ Á¦½ÃÇÏ°í °ÔÀÓ »óÈ² ¾÷µ¥ÀÌÆ® 
-		 * @param event : Âü¿©ÀÚÀÇ °¡À§¹ÙÀ§º¸ ¼±ÅÃ °á°ú 
+		 * ì°¸ì—¬ìê°€ ê°€ìœ„ë°”ìœ„ë³´ë¥¼ ì„ íƒì‹œ ìƒëŒ€í¸ ì„ íƒê³¼ ë¹„êµí•˜ì—¬ ìŠ¹íŒ¨ ê²°ê³¼ë¥¼ ì œì‹œí•˜ê³  ê²Œì„ ìƒí™© ì—…ë°ì´íŠ¸ 
+		 * @param event : ì°¸ì—¬ìì˜ ê°€ìœ„ë°”ìœ„ë³´ ì„ íƒ ê²°ê³¼ 
 		 */
 		public void actionPerformed( ActionEvent event )  
 		{
 			
 			label4.setText("life: "+life);
-			// Âü¿©ÀÚ°¡ ¸ÕÀú °¡À§¹ÙÀ§º¸ ³»±â 
+			// ì°¸ì—¬ìê°€ ë¨¼ì € ê°€ìœ„ë°”ìœ„ë³´ ë‚´ê¸° 
 			playerA[0] = selectRockPaperScissors( event );
-			// »ó´ëÆíµµ ÀÓÀÇ·Î °¡À§¹ÙÀ§º¸ ³»±â 
+			// ìƒëŒ€í¸ë„ ì„ì˜ë¡œ ê°€ìœ„ë°”ìœ„ë³´ ë‚´ê¸° 
 			playerB[0] = game.selectRockPaperScissors();
 
-			// ½ÂÆĞ °á°ú¸¦ GUI È­¸é¿¡ ¾÷µ¥ÀÌÆ® 
+			// ìŠ¹íŒ¨ ê²°ê³¼ë¥¼ GUI í™”ë©´ì— ì—…ë°ì´íŠ¸ 
 			setGameResult();
 			String result = game.judge( playerA[0], playerB[0] );
-			if ( result.contains( "Âü¿©ÀÚ°¡ ÀÌ°å½À´Ï´Ù" ) )
+			if ( result.contains( "ì°¸ì—¬ìê°€ ì´ê²¼ìŠµë‹ˆë‹¤" ) )
 			{
 				
 			}
 				
 			else {
-				// »ç¿ëÀÚ°¡ Áú °æ¿ì ¸ñ¼û 1 Â÷°¨
+				// ì‚¬ìš©ìê°€ ì§ˆ ê²½ìš° ëª©ìˆ¨ 1 ì°¨ê°
 				life--;
 				label4.setText("life: "+life);
 			}
 			imgPlayerA.setIcon( image[ playerA[0] ][ playerA[1] ] );
 			imgPlayerB.setIcon( image[ playerB[0] ][ playerB[1] ] );	
 			
-			// ´ÙÀ½ ÆÇÀº Àá½Ã ´ë±â 
+			// ë‹¤ìŒ íŒì€ ì ì‹œ ëŒ€ê¸° 
 			button[0].setEnabled( false );
 			button[1].setEnabled( false );
 			button[2].setEnabled( false );
@@ -471,13 +472,13 @@ class Panels extends JPanel
 		}
 		
 		/**
-		 * Å¸ÀÌ¸Ó Å¬·¡½º 
+		 * íƒ€ì´ë¨¸ í´ë˜ìŠ¤ 
 		 */
 		private class TimerListener implements ActionListener 
 		{
 			
 			/**
-			 * Àá½Ã ´ë±âÈÄ ´ÙÀ½ ÆÇ Çã¿ë 
+			 * ì ì‹œ ëŒ€ê¸°í›„ ë‹¤ìŒ íŒ í—ˆìš© 
 			 */
 			public void actionPerformed( ActionEvent event ) 
 			{
@@ -487,7 +488,7 @@ class Panels extends JPanel
 				button[1].setEnabled( true );
 				button[2].setEnabled( true );
 				
-				// ½Â¸® È½¼ö 4ÀÌ¸é ½ºÅ×ÀÌÁö Å¬¸®¾î·Î ´ÙÀ½ ÆäÀÌÁö·Î ÀÌµ¿ //
+				// ìŠ¹ë¦¬ íšŸìˆ˜ 4ì´ë©´ ìŠ¤í…Œì´ì§€ í´ë¦¬ì–´ë¡œ ë‹¤ìŒ í˜ì´ì§€ë¡œ ì´ë™ //
 				if (win == 4) 
 				
 					deck.next(cards);
@@ -495,12 +496,12 @@ class Panels extends JPanel
 				
 				else if (life == 0) 
 				{
-					// ¸ñ¼û(³²Àº ±âÈ¸) 0ÀÌ¸é Àü ÆäÀÌÁö·Î µ¹¾Æ°¡ ´Ù½Ã °ÔÀÓ ÁøÇà //
+					// ëª©ìˆ¨(ë‚¨ì€ ê¸°íšŒ) 0ì´ë©´ ì „ í˜ì´ì§€ë¡œ ëŒì•„ê°€ ë‹¤ì‹œ ê²Œì„ ì§„í–‰ //
 					deck.previous(cards);
-					// ¸ñ¼û, ½Â¸® ÃÊ±âÈ­ //
+					// ëª©ìˆ¨, ìŠ¹ë¦¬ ì´ˆê¸°í™” //
 					life = 10;
 					win = 0;
-					// »ç¿ëÀÚ¿¡°Ô ¾Ë·ÁÁÖ´Â ÅØ½ºÆ®µµ ÃÊ±âÈ­ //
+					// ì‚¬ìš©ìì—ê²Œ ì•Œë ¤ì£¼ëŠ” í…ìŠ¤íŠ¸ë„ ì´ˆê¸°í™” //
 					label4.setText("life: "+ life);
 					label3.setText("win: " + +win);
 				}	
@@ -518,17 +519,17 @@ class Panels extends JPanel
 				        setLayout(null);
 				        
 						setBackground (Color.black);
-						JLabel label1 = new JLabel("<html>[ÇÏÀÌ¸®¿Â]: À¸¸£··!! ¿À ~ Á¦¹ıÀÎµ¥<br>"
-								+ "<html>[ÇÏÀÌ¸®¿Â]: ÁÁ¾Æ ???¸¦ ¾Ë·ÁÁÖÁö<br>"
-								+ "<html>[ÇÏÀÌ¸®¿Â]: ???Àº '°õµÎ¸®'´Ù ±×·³ ³­ ¿îµ¿ÇÏ·¯ °¡º¼°Ô~<br>"
-								+ "<html>ÇÏ¾Æ¸®¿ÂÀº °õµÎ¸®°¡ Á¹¾÷ÀåÀ» °¡Á®°¬´Ù ¸»Çß´Ù<br>"
-								+ "<html>±×·¸´Ù¸é °õµÎ¸®¸¦ Ã£¾Æ°¡º¸ÀÚ<br>");
+						JLabel label1 = new JLabel("<html>[í•˜ì´ë¦¬ì˜¨]: ìœ¼ë¥´ë !! ì˜¤ ~ ì œë²•ì¸ë°<br>"
+								+ "<html>[í•˜ì´ë¦¬ì˜¨]: ì¢‹ì•„ ???ë¥¼ ì•Œë ¤ì£¼ì§€<br>"
+								+ "<html>[í•˜ì´ë¦¬ì˜¨]: ???ì€ 'ê³°ë‘ë¦¬'ë‹¤ ê·¸ëŸ¼ ë‚œ ìš´ë™í•˜ëŸ¬ ê°€ë³¼ê²Œ~<br>"
+								+ "<html>í•˜ì•„ë¦¬ì˜¨ì€ ê³°ë‘ë¦¬ê°€ ì¡¸ì—…ì¥ì„ ê°€ì ¸ê°”ë‹¤ ë§í–ˆë‹¤<br>"
+								+ "<html>ê·¸ë ‡ë‹¤ë©´ ê³°ë‘ë¦¬ë¥¼ ì°¾ì•„ê°€ë³´ì<br>");
 						label1.setForeground(Color.white);
-						label1.setFont(new Font("¸ğ¸®½º9",Font.BOLD,35));
+						label1.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,35));
 						label1.setBounds(50, -180, 1200, 700);
 						add(label1);
 						
-						ImageIcon hilion2 = new ImageIcon ("./src/image/ÇÑ¾ç´ë ÇÏÀÌ¸®¿Â.png");
+						ImageIcon hilion2 = new ImageIcon ("./src/image/í•œì–‘ëŒ€ í•˜ì´ë¦¬ì˜¨.png");
 						JLabel Label2 = new JLabel (hilion2);
 						Label2.setBounds(750, 200, 500, 500);
 						add(Label2);
@@ -538,7 +539,7 @@ class Panels extends JPanel
 
 						next.setPreferredSize(new Dimension(50, 50));
 						next.setBounds(530, 550, 200, 50);
-						next.setFont(new Font("¸ğ¸®½º9",Font.BOLD,30));
+						next.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,30));
 						
 						add(next);
 						
@@ -560,19 +561,19 @@ class Panels extends JPanel
 				        setLayout(null);
 				        
 						setBackground (Color.black);
-						JLabel label1 = new JLabel("<html>[°õµÎ¸®]: ÂÁÂÁ~ ¾Æ ¸ÀÀÖ´Ù!!<br>"
-								+ "<html>[°õµÎ¸®]: ¼ö¹¶¾Æ ÇÏÀÌ! ¹«½¼ ÀÏÀÌ¾ß?<br>"
-								+ "<html>[°õµÎ¸®]: ¹¹¶ó°í? Á¹¾÷ÀåÀ» ÀÒ¾î¹ö·È¾î?!<br>"
-								+ "<html>[°õµÎ¸®]: ¾Æ ¸Â´Ù! Àú¹ø¿¡ °ğ Á¹¾÷À» ¾ÕµĞ ?°¡ °¡Á®°¡´Â ºÃ¾î<br>"
-								+ "<html>[°õµÎ¸®]: ?¸¦ ¾Ë·Á´Ş¶ó°í? ¼ö¹¶¾Æ ³ª ¸ñ¸»¶ó¼­ ±×·¯´Âµ¥ À½·á¼ö »çÁÖ¸é ¾Ë·ÁÁÙ°Ô<br>"
-						        + "<html>[°õµÎ¸®]: µ·ÀÌ ¾ø´Ù°í? ±×·¸´Ù¸é ³ª¿Í °ÔÀÓÀ» ÇØ¼­ ÀÌ±â¸é ¾Ë·ÁÁÖÁö ¸Ş·Õ~<br>"
-								+ "<html>[°õµÎ¸®]: ÁÁ¾Æ °ÔÀÓ ½ÃÀÛÀÌ´Ù! ÂÁÂÁ~");
+						JLabel label1 = new JLabel("<html>[ê³°ë‘ë¦¬]: ì©ì©~ ì•„ ë§›ìˆë‹¤!!<br>"
+								+ "<html>[ê³°ë‘ë¦¬]: ìˆ˜ë­‰ì•„ í•˜ì´! ë¬´ìŠ¨ ì¼ì´ì•¼?<br>"
+								+ "<html>[ê³°ë‘ë¦¬]: ë­ë¼ê³ ? ì¡¸ì—…ì¥ì„ ìƒì–´ë²„ë ¸ì–´?!<br>"
+								+ "<html>[ê³°ë‘ë¦¬]: ì•„ ë§ë‹¤! ì €ë²ˆì— ê³§ ì¡¸ì—…ì„ ì•ë‘” ?ê°€ ê°€ì ¸ê°€ëŠ” ë´¤ì–´<br>"
+								+ "<html>[ê³°ë‘ë¦¬]: ?ë¥¼ ì•Œë ¤ë‹¬ë¼ê³ ? ìˆ˜ë­‰ì•„ ë‚˜ ëª©ë§ë¼ì„œ ê·¸ëŸ¬ëŠ”ë° ìŒë£Œìˆ˜ ì‚¬ì£¼ë©´ ì•Œë ¤ì¤„ê²Œ<br>"
+						        + "<html>[ê³°ë‘ë¦¬]: ëˆì´ ì—†ë‹¤ê³ ? ê·¸ë ‡ë‹¤ë©´ ë‚˜ì™€ ê²Œì„ì„ í•´ì„œ ì´ê¸°ë©´ ì•Œë ¤ì£¼ì§€ ë©”ë¡±~<br>"
+								+ "<html>[ê³°ë‘ë¦¬]: ì¢‹ì•„ ê²Œì„ ì‹œì‘ì´ë‹¤! ì©ì©~");
 						label1.setForeground(Color.white);
-						label1.setFont(new Font("¸ğ¸®½º9",Font.BOLD,35));
+						label1.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,35));
 						label1.setBounds(50, -180, 1200, 700);
 						add(label1);
 						
-						ImageIcon hilion2 = new ImageIcon ("./src/image/°­¿ø´ë °õµÎ¸®.png");
+						ImageIcon hilion2 = new ImageIcon ("./src/image/ê°•ì›ëŒ€ ê³°ë‘ë¦¬.png");
 						JLabel Label2 = new JLabel (hilion2);
 						Label2.setBounds(750, 200, 500, 500);
 						add(Label2);
@@ -582,7 +583,7 @@ class Panels extends JPanel
 
 						next.setPreferredSize(new Dimension(50, 50));
 						next.setBounds(530, 550, 200, 50);
-						next.setFont(new Font("¸ğ¸®½º9",Font.BOLD,30));
+						next.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,30));
 						
 						add(next);
 						
@@ -597,62 +598,62 @@ class Panels extends JPanel
 			}
 		}
 		/**
-		 * ±¸½½Ã£±â ÆĞ³Î 
+		 * êµ¬ìŠ¬ì°¾ê¸° íŒ¨ë„ 
 		 * @author So Young Park
 		 * @version 0.8
 		 */
 		public class panel7 extends JPanel implements ActionListener	
 		{
 			/** 
-			 * ±¸½½Ã£±â Âü¿©ÀÚ   
+			 * êµ¬ìŠ¬ì°¾ê¸° ì°¸ì—¬ì   
 			 */	
 			protected int player;
 			/** 
-			 * ±¸½½ÀÌ ¼û¾î ÀÖ´Â À§Ä¡
+			 * êµ¬ìŠ¬ì´ ìˆ¨ì–´ ìˆëŠ” ìœ„ì¹˜
 			 */	
 			protected int ball;
 			/** 
-			 * ±¸½½Ã£±â ¹öÆ°      
+			 * êµ¬ìŠ¬ì°¾ê¸° ë²„íŠ¼      
 			 */	
 			private JButton[] button;	
 			/** 
-			 * Å¸ÀÌ¸Ó  
+			 * íƒ€ì´ë¨¸  
 			 */	
 			private Timer timer;
 			/** 
-			 * ±¸½½Ã£±â °ÔÀÓ »óÅÂ¸¦ ¹®ÀÚ¿­·Î Ç¥Çö      
+			 * êµ¬ìŠ¬ì°¾ê¸° ê²Œì„ ìƒíƒœë¥¼ ë¬¸ìì—´ë¡œ í‘œí˜„      
 			 */	
 			protected JLabel label;	
 			/** 
-			 * ±¸½½Ã£±â °ÔÀÓ¿¡¼­ ÄÅ »óÅÂ¸¦ ÀÌ¹ÌÁö·Î Ç¥Çö     
+			 * êµ¬ìŠ¬ì°¾ê¸° ê²Œì„ì—ì„œ ì»µ ìƒíƒœë¥¼ ì´ë¯¸ì§€ë¡œ í‘œí˜„     
 			 */	
 			private JLabel[] cup;	
 			/** 
-			 * ÄÅ ÀÌ¹ÌÁö´Â ±âº» ÄÅ, ±¸½½ÀÌ ÀÖ´Â ÄÅ, ±¸½½Ã£±â¿¡ ½ÇÆĞÇÑ ÄÅÀÇ 3°¡Áö °æ¿ì¸¦ ÁØºñ      
+			 * ì»µ ì´ë¯¸ì§€ëŠ” ê¸°ë³¸ ì»µ, êµ¬ìŠ¬ì´ ìˆëŠ” ì»µ, êµ¬ìŠ¬ì°¾ê¸°ì— ì‹¤íŒ¨í•œ ì»µì˜ 3ê°€ì§€ ê²½ìš°ë¥¼ ì¤€ë¹„      
 			 */	
 			private ImageIcon[] img;	
 			/** 
-			 * ±âº» ÄÅ ÀÌ¹ÌÁö ¹øÈ£  
+			 * ê¸°ë³¸ ì»µ ì´ë¯¸ì§€ ë²ˆí˜¸  
 			 */	
 			private final int BASE = 0;
 			/** 
-			 * ±¸½½ÀÌ ÀÖ´Â ÄÅ ÀÌ¹ÌÁö ¹øÈ£  
+			 * êµ¬ìŠ¬ì´ ìˆëŠ” ì»µ ì´ë¯¸ì§€ ë²ˆí˜¸  
 			 */	
 			private final int BALL = 1;
 			/** 
-			 * ±¸½½Ã£±â¿¡ ½ÇÆĞÇÑ ÄÅ ÀÌ¹ÌÁö ¹øÈ£ 
+			 * êµ¬ìŠ¬ì°¾ê¸°ì— ì‹¤íŒ¨í•œ ì»µ ì´ë¯¸ì§€ ë²ˆí˜¸ 
 			 */	
 			private final int MISS = 2;
-			// ¸ñ¼û(³²Àº ±âÈ¸) life º¯¼ö //
+			// ëª©ìˆ¨(ë‚¨ì€ ê¸°íšŒ) life ë³€ìˆ˜ //
 			private int life = 10;
-			// ½Â¸®(Å¬¸®¾î Á¶°Ç) win º¯¼ö // 
+			// ìŠ¹ë¦¬(í´ë¦¬ì–´ ì¡°ê±´) win ë³€ìˆ˜ // 
 			private int win = 0;
-			// ¸ñ¼û, ½Â¸®¸¦ »ç¿ëÀÚ°¡ ¾Ë ¼ö ÀÖµµ·Ï ÅØ½ºÆ®¸¦ À§ÇÑ ¶óº§ ¼±¾ğ //
+			// ëª©ìˆ¨, ìŠ¹ë¦¬ë¥¼ ì‚¬ìš©ìê°€ ì•Œ ìˆ˜ ìˆë„ë¡ í…ìŠ¤íŠ¸ë¥¼ ìœ„í•œ ë¼ë²¨ ì„ ì–¸ //
 			private JLabel label3;
 			private JLabel label4;
 
 			/**
-			 * ±¸½½Ã£±â GUI ÆĞ³Î ÃÊ±âÈ­ 
+			 * êµ¬ìŠ¬ì°¾ê¸° GUI íŒ¨ë„ ì´ˆê¸°í™” 
 			 */
 			public panel7() 
 			{
@@ -660,41 +661,41 @@ class Panels extends JPanel
 			        
 				setBackground (Color.black);
 				
-				JLabel label1 = new JLabel("<html>STAGE2: ±¸½½ Ã£±â °ÔÀÓ<br><br>");
+				JLabel label1 = new JLabel("<html>STAGE2: êµ¬ìŠ¬ ì°¾ê¸° ê²Œì„<br><br>");
 				label1.setForeground(Color.white);
-				label1.setFont(new Font("¸ğ¸®½º9",Font.BOLD,30));
+				label1.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,30));
 				label1.setBounds(500, -300, 1200, 700);
 				add(label1);
 				
-				JLabel label2 = new JLabel( "<html>°ÔÀÓ ¹æ¹ı: °õµÎ¸®°¡ ±¸½½À» ¼û°Ü ³õÀº <br>"
+				JLabel label2 = new JLabel( "<html>ê²Œì„ ë°©ë²•: ê³°ë‘ë¦¬ê°€ êµ¬ìŠ¬ì„ ìˆ¨ê²¨ ë†“ì€ <br>"
 						+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 						+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-						+ "<html> &nbsp;&nbsp&nbsp;±¸½½ÀÌ ´ã±ä ÄÅ ¹øÈ£¸¦ 5¹øÀ» ¸ÜÃß¸é Å¬¸®¾î!<br>"
+						+ "<html> &nbsp;&nbsp&nbsp;êµ¬ìŠ¬ì´ ë‹´ê¸´ ì»µ ë²ˆí˜¸ë¥¼ 5ë²ˆì„ ë©ì¶”ë©´ í´ë¦¬ì–´!<br>"
 						+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 						+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-						+ "<html> &nbsp;&nbsp&nbsp;¸ñ¼ûÀº ÃÑ 10!<br>"
+						+ "<html> &nbsp;&nbsp&nbsp;ëª©ìˆ¨ì€ ì´ 10!<br>"
 			         	+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 			          	+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-			        	+ "<html> &nbsp;&nbsp&nbsp;¸ø ¸ÂÃâ ¶§¸¶´Ù 1¾¿ Â÷°¨!<br>");
+			        	+ "<html> &nbsp;&nbsp&nbsp;ëª» ë§ì¶œ ë•Œë§ˆë‹¤ 1ì”© ì°¨ê°!<br>");
 				label2.setForeground(Color.white);
-				label2.setFont(new Font("¸ğ¸®½º9",Font.BOLD,25));
+				label2.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,25));
 				label2.setBounds(50, -250, 1200, 700);
 				add(label2);
 				
 				label4 = new JLabel("life: " + life );
 				label4.setForeground(Color.white);
-				label4.setFont(new Font("¸ğ¸®½º9",Font.BOLD,50));
+				label4.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,50));
 				label4.setBounds(1106, 10, 300, 100);
 				add(label4);
 
 				label3 = new JLabel("win: " + win );
 				label3.setForeground(Color.white);
-				label3.setFont(new Font("¸ğ¸®½º9",Font.BOLD,50));
+				label3.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,50));
 				label3.setBounds(1100, 60, 300, 100);
 				add(label3);
 
 				
-				// ±âº» ÄÅ, ±¸½½ÀÌ ÀÖ´Â ÄÅ, ±¸½½Ã£±â¿¡ ½ÇÆĞÇÑ ÄÅÀÇ 3°¡Áö °æ¿ìÀÇ ÀÌ¹ÌÁö¸¦ ÁØºñ 
+				// ê¸°ë³¸ ì»µ, êµ¬ìŠ¬ì´ ìˆëŠ” ì»µ, êµ¬ìŠ¬ì°¾ê¸°ì— ì‹¤íŒ¨í•œ ì»µì˜ 3ê°€ì§€ ê²½ìš°ì˜ ì´ë¯¸ì§€ë¥¼ ì¤€ë¹„ 
 				img = new ImageIcon[3];
 				final String imgPath = "./src/ThreeCupGame/image/";
 				final String PathImgCup  = imgPath + "cup.jpg";
@@ -704,7 +705,7 @@ class Panels extends JPanel
 				img[ BALL ] = new ImageIcon( new ImageIcon( PathImgBall ).getImage().getScaledInstance( 200, 250, Image.SCALE_SMOOTH ) );
 				img[ MISS ] = new ImageIcon( new ImageIcon( PathImgFail ).getImage().getScaledInstance( 200, 250, Image.SCALE_SMOOTH ) );
 
-				// ÄÅ 3°³¸¦ ±âº» ÀÌ¹ÌÁö·Î ÃÊ±âÈ­ 
+				// ì»µ 3ê°œë¥¼ ê¸°ë³¸ ì´ë¯¸ì§€ë¡œ ì´ˆê¸°í™” 
 				cup = new JLabel[3];
 				cup[0] = new JLabel( img[ BASE ] );
 				cup[1] = new JLabel( img[ BASE ] );
@@ -718,7 +719,7 @@ class Panels extends JPanel
 				add( cup[1] );
 				add( cup[2] );
 
-				// ÄÅ 3°³ ÀÔ·Â ¹öÆ° ÃÊ±âÈ­  
+				// ì»µ 3ê°œ ì…ë ¥ ë²„íŠ¼ ì´ˆê¸°í™”  
 				button = new JButton[3];
 				button[0] = new JButton( "1");
 				button[0].addActionListener( this ); 
@@ -739,14 +740,14 @@ class Panels extends JPanel
 	
 
 
-				// ±¸½½Ã£±â ¼±ÅÃ ÈÄ Àá±ñ 1ÃÊ ½¬¾ú´Ù°¡ Àç½ÃÀÛÇÒ ¼ö ÀÖµµ·Ï Å¸ÀÌ¸Ó ¼³Á¤  
+				// êµ¬ìŠ¬ì°¾ê¸° ì„ íƒ í›„ ì ê¹ 1ì´ˆ ì‰¬ì—ˆë‹¤ê°€ ì¬ì‹œì‘í•  ìˆ˜ ìˆë„ë¡ íƒ€ì´ë¨¸ ì„¤ì •  
 				this.timer = new Timer( 1000, new TimerListener() );
 			}
 			
 			/**
-			 * Âü¿©ÀÚ°¡ ¹öÆ°À» ´­·¯¼­ ¼±ÅÃÇÑ ±¸½½Ã£±â °á°ú¸¦ intÇü ÀÚ·á·Î º¯È¯
-			 * @param event ¹öÆ°À» ´­·¯¼­ ¼±ÅÃÇÑ °á°ú 
-			 * @return ±¸½½Ã£±â ¼±ÅÃ °á°ú 
+			 * ì°¸ì—¬ìê°€ ë²„íŠ¼ì„ ëˆŒëŸ¬ì„œ ì„ íƒí•œ êµ¬ìŠ¬ì°¾ê¸° ê²°ê³¼ë¥¼ intí˜• ìë£Œë¡œ ë³€í™˜
+			 * @param event ë²„íŠ¼ì„ ëˆŒëŸ¬ì„œ ì„ íƒí•œ ê²°ê³¼ 
+			 * @return êµ¬ìŠ¬ì°¾ê¸° ì„ íƒ ê²°ê³¼ 
 			 */
 			protected int selectCup( ActionEvent event )
 			{
@@ -759,7 +760,7 @@ class Panels extends JPanel
 			}
 			
 			/**
-			 * ±¸½½Ã£±â ¼±ÅÃ ¹× ½ÂÆĞ °á°ú¸¦ È­¸é¿¡ ¾÷µ¥ÀÌÆ®
+			 * êµ¬ìŠ¬ì°¾ê¸° ì„ íƒ ë° ìŠ¹íŒ¨ ê²°ê³¼ë¥¼ í™”ë©´ì— ì—…ë°ì´íŠ¸
 			 */
 			protected void showGameResult( int player, int ball ) 
 			{
@@ -767,25 +768,25 @@ class Panels extends JPanel
 				if ( player != ball )
 					cup[ player ].setIcon( img[ MISS ] ); 
 				else {
-					// ±¸½½ÀÌ ´ã±ä ÄÅÀ» ¸ÂÃâ °æ¿ì win 1 Áõ°¡ //
+					// êµ¬ìŠ¬ì´ ë‹´ê¸´ ì»µì„ ë§ì¶œ ê²½ìš° win 1 ì¦ê°€ //
 					win++;
-					// »ç¿ëÀÚ°¡ º¼ ¼ö ÀÖ´Â ½Â¸® ÅØ½ºÆ® ¾÷µ¥ÀÌÆ® // 
+					// ì‚¬ìš©ìê°€ ë³¼ ìˆ˜ ìˆëŠ” ìŠ¹ë¦¬ í…ìŠ¤íŠ¸ ì—…ë°ì´íŠ¸ // 
 				    label3.setText("win: "+win);
 				}
 			} 
 			
 			/**
-			 * ±¸½½Ã£±â °ÔÀÓ ÁøÇàÇÏ±â 
-			 * @param event : Âü¿©ÀÚÀÇ ±¸½½Ã£±â ¼±ÅÃ °á°ú 
+			 * êµ¬ìŠ¬ì°¾ê¸° ê²Œì„ ì§„í–‰í•˜ê¸° 
+			 * @param event : ì°¸ì—¬ìì˜ êµ¬ìŠ¬ì°¾ê¸° ì„ íƒ ê²°ê³¼ 
 			 */
 			public void actionPerformed( ActionEvent event )  
 			{
 				
-				// ÄÅ 3°³ Áß ÇÏ³ª¿¡ ÀÓÀÇ·Î ±¸½½À» ¼û±â±â 
+				// ì»µ 3ê°œ ì¤‘ í•˜ë‚˜ì— ì„ì˜ë¡œ êµ¬ìŠ¬ì„ ìˆ¨ê¸°ê¸° 
 				this.ball = (int)( Math.random() * 3 );
-				// Âü¿©ÀÚ´Â ±¸½½À» ¼û±ä ÄÅÀ» ¸ÂÃß±â 
+				// ì°¸ì—¬ìëŠ” êµ¬ìŠ¬ì„ ìˆ¨ê¸´ ì»µì„ ë§ì¶”ê¸° 
 				this.player = this.selectCup( event );
-				// ½ÂÆĞ °á°ú¸¦ GUI È­¸é¿¡ ¾÷µ¥ÀÌÆ® 
+				// ìŠ¹íŒ¨ ê²°ê³¼ë¥¼ GUI í™”ë©´ì— ì—…ë°ì´íŠ¸ 
 				showGameResult( this.player, this.ball );
 				if ( player != ball ) {
 					life--;
@@ -797,7 +798,7 @@ class Panels extends JPanel
 					
 				}
 				
-				// ´ÙÀ½ ÆÇÀº Àá½Ã ´ë±â 
+				// ë‹¤ìŒ íŒì€ ì ì‹œ ëŒ€ê¸° 
 				timer.start();		
 				button[0].setEnabled( false );
 				button[1].setEnabled( false );
@@ -805,18 +806,18 @@ class Panels extends JPanel
 			}	
 			
 			/**
-			 * Å¸ÀÌ¸Ó Å¬·¡½º 
+			 * íƒ€ì´ë¨¸ í´ë˜ìŠ¤ 
 			 */
 			private class TimerListener implements ActionListener
 			{
 				/**
-				 * Àá½Ã ´ë±âÈÄ ´ÙÀ½ ÆÇ Çã¿ë 
+				 * ì ì‹œ ëŒ€ê¸°í›„ ë‹¤ìŒ íŒ í—ˆìš© 
 				 */
 				public void actionPerformed( ActionEvent event ) 
 				{
 					
 					timer.stop();			
-					// ÄÅ¿¡ ±¸½½ ¼û±â°í ±¸½½Ã£±â ¼±ÅÃ Çã¿ë
+					// ì»µì— êµ¬ìŠ¬ ìˆ¨ê¸°ê³  êµ¬ìŠ¬ì°¾ê¸° ì„ íƒ í—ˆìš©
 					cup[0].setIcon( img[ BASE ] ); 
 					cup[1].setIcon( img[ BASE ] ); 
 					cup[2].setIcon( img[ BASE ] ); 	
@@ -824,18 +825,18 @@ class Panels extends JPanel
 					button[1].setEnabled( true );
 					button[2].setEnabled( true );
 					
-					// »ç¿ëÀÚ°¡ 5¹ø ¸ÂÃâ °æ¿ì Å¬¸®¾î Á¶°ÇÀ» ´Ş¼ºÇßÀ¸¹Ç·Î ´ÙÀ½ ÆäÀÌÁö·Î ÀÌµ¿ //
+					// ì‚¬ìš©ìê°€ 5ë²ˆ ë§ì¶œ ê²½ìš° í´ë¦¬ì–´ ì¡°ê±´ì„ ë‹¬ì„±í–ˆìœ¼ë¯€ë¡œ ë‹¤ìŒ í˜ì´ì§€ë¡œ ì´ë™ //
 					if (win == 5) 
 						deck.next(cards);
 					
 					else if (life == 0) 
 					{
-						// ¸ñ¼û(³²Àº ±âÈ¸)°¡ 0ÀÌ µÉ °æ¿ì Àü ÆäÀÌÁö·Î µ¹¾Æ°¡ ´Ù½Ã °ÔÀÓ ½ÃÀÛ //
+						// ëª©ìˆ¨(ë‚¨ì€ ê¸°íšŒ)ê°€ 0ì´ ë  ê²½ìš° ì „ í˜ì´ì§€ë¡œ ëŒì•„ê°€ ë‹¤ì‹œ ê²Œì„ ì‹œì‘ //
 						deck.previous(cards);
-						// ¸ñ¼û, ½Â¸® È½¼ö ÃÊ±âÈ­ //
+						// ëª©ìˆ¨, ìŠ¹ë¦¬ íšŸìˆ˜ ì´ˆê¸°í™” //
 						life = 10;
 						win = 0;
-						// ¸ñ¼û, ½Â¸® ³ªÅ¸³»´Â ÅØ½ºÆ® ÃÊ±âÈ­ //
+						// ëª©ìˆ¨, ìŠ¹ë¦¬ ë‚˜íƒ€ë‚´ëŠ” í…ìŠ¤íŠ¸ ì´ˆê¸°í™” //
 						label4.setText("life: "+ life);
 						label3.setText("win: " + +win);
 					}
@@ -850,17 +851,17 @@ class Panels extends JPanel
 				        setLayout(null);
 				        
 						setBackground (Color.black);
-						JLabel label1 = new JLabel("<html>[°õµÎ¸®]: ¿ª½Ã ÈÇ¸¢ÇÏ±º!<br>"
-								+ "<html>[°õµÎ¸®]: °ÔÀÓ¿¡ ÀÌ°åÀ¸´Ï ?¸¦ ¾Ë·ÁÁÖÁö<br>"
-								+ "<html>[°õµÎ¸®]: ?Àº 'Äí'´Ù ³­ ÁøÁ¤ÇÑ ¾ÆÆ¼½ºÆ®°¡ µÇ±â À§ÇØ ¶°³ªÁö ÀÌ¸¸!<br>"
-								+ "<html>°õµÎ¸®´Â Äí°¡ Á¹¾÷ÀåÀ» °¡Á®°¬´Ù ¸»Çß´Ù <br>"
-								+ "<html>±×·¸´Ù¸é Äí¸¦ Ã£¾Æ°¡º¸ÀÚ<br>");
+						JLabel label1 = new JLabel("<html>[ê³°ë‘ë¦¬]: ì—­ì‹œ í›Œë¥­í•˜êµ°!<br>"
+								+ "<html>[ê³°ë‘ë¦¬]: ê²Œì„ì— ì´ê²¼ìœ¼ë‹ˆ ?ë¥¼ ì•Œë ¤ì£¼ì§€<br>"
+								+ "<html>[ê³°ë‘ë¦¬]: ?ì€ 'ì¿ 'ë‹¤ ë‚œ ì§„ì •í•œ ì•„í‹°ìŠ¤íŠ¸ê°€ ë˜ê¸° ìœ„í•´ ë– ë‚˜ì§€ ì´ë§Œ!<br>"
+								+ "<html>ê³°ë‘ë¦¬ëŠ” ì¿ ê°€ ì¡¸ì—…ì¥ì„ ê°€ì ¸ê°”ë‹¤ ë§í–ˆë‹¤ <br>"
+								+ "<html>ê·¸ë ‡ë‹¤ë©´ ì¿ ë¥¼ ì°¾ì•„ê°€ë³´ì<br>");
 						label1.setForeground(Color.white);
-						label1.setFont(new Font("¸ğ¸®½º9",Font.BOLD,35));
+						label1.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,35));
 						label1.setBounds(50, -180, 1200, 700);
 						add(label1);
 						
-						ImageIcon hilion2 = new ImageIcon ("./src/image/°­¿ø´ë °õµÎ¸®2.png");
+						ImageIcon hilion2 = new ImageIcon ("./src/image/ê°•ì›ëŒ€ ê³°ë‘ë¦¬2.png");
 						JLabel Label2 = new JLabel (hilion2);
 						Label2.setBounds(750, 200, 500, 500);
 						add(Label2);
@@ -870,7 +871,7 @@ class Panels extends JPanel
 
 						next.setPreferredSize(new Dimension(50, 50));
 						next.setBounds(530, 550, 200, 50);
-						next.setFont(new Font("¸ğ¸®½º9",Font.BOLD,30));
+						next.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,30));
 						
 						add(next);
 						
@@ -892,19 +893,19 @@ class Panels extends JPanel
 					        setLayout(null);
 					        
 							setBackground (Color.black);
-							JLabel label1 = new JLabel("<html>[Äí]: À½¸Ş~ µåµğ¾î Á¹¾÷ÀÌ´Ù ¾ßÈ£!<br>"
-									+ "<html>[Äí]: ¿À! ¼ö¹¶Äï ¹İ°¡¿ö~ ¹«½¼ ÀÏÀÌ¾ß?<br>"
-									+ "<html>[Äí]: ¾Æ Á¹¾÷Áõ ³»°¡ Àú¹ø¿¡ ¸ğ¸£°í °®°í °¡¹ö·È¾î ¹Ì¾È..<br>"
-									+ "<html>[Äí]: Á¹¾÷ÁõÀº »ó¸í´ë °øÇĞ°ü ????¿¡ ÀÖ¾î ¤¾¤¾<br>"
-									+ "<html>[Äí]: ¾Ë¾Ò¾î ????À» ¾Ë·ÁÁÙ°Ô. ´ë½Å ³» ºÎÅ¹ ÇÏ³ª¸¸ µé¾îÁÙ ¼ö ÀÖÀ»±î?<br>"
-									+ "<html>[Äí]: ³»°¡ ÀÚ¹Ù¸¦ ÀÌ¿ëÇØ¼­ ¸¸µç °ÔÀÓÀÎµ¥ ÇÑ ¹ø¸¸ ÇØÁÖ¶ó Á¦¹ß ºÎÅ¹ÀÌ¾ß ¤Ğ¤Ğ<br>"
-									+ "<html>[Äí]: °í¸¶¿ö ¼ö¹¶Äï ±×·³ °ÔÀÓ ½ÃÀÛÀÌ´Ù! À½¸Ş~ <br>");
+							JLabel label1 = new JLabel("<html>[ì¿ ]: ìŒë©”~ ë“œë””ì–´ ì¡¸ì—…ì´ë‹¤ ì•¼í˜¸!<br>"
+									+ "<html>[ì¿ ]: ì˜¤! ìˆ˜ë­‰ì¿¤ ë°˜ê°€ì›Œ~ ë¬´ìŠ¨ ì¼ì´ì•¼?<br>"
+									+ "<html>[ì¿ ]: ì•„ ì¡¸ì—…ì¦ ë‚´ê°€ ì €ë²ˆì— ëª¨ë¥´ê³  ê°–ê³  ê°€ë²„ë ¸ì–´ ë¯¸ì•ˆ..<br>"
+									+ "<html>[ì¿ ]: ì¡¸ì—…ì¦ì€ ìƒëª…ëŒ€ ê³µí•™ê´€ ????ì— ìˆì–´ <br>"
+									+ "<html>[ì¿ ]: ì•Œì•˜ì–´ ????ì„ ì•Œë ¤ì¤„ê²Œ ëŒ€ì‹  ë‚´ ë¶€íƒ í•˜ë‚˜ë§Œ ë“¤ì–´ì¤„ ìˆ˜ ìˆì„ê¹Œ?<br>"
+									+ "<html>[ì¿ ]: ë‚´ê°€ ìë°”ë¥¼ ì´ìš©í•´ì„œ ë§Œë“  ê²Œì„ì¸ë° í•œ ë²ˆë§Œ í•´ì£¼ë¼ ì œë°œ ë¶€íƒì´ì•¼ <br>"
+									+ "<html>[ì¿ ]: ê³ ë§ˆì›Œ ìˆ˜ë­‰ì¿¤ ê·¸ëŸ¼ ê²Œì„ ì‹œì‘ì´ë‹¤! ìŒë©”~ <br>");
 							label1.setForeground(Color.white);
-							label1.setFont(new Font("¸ğ¸®½º9",Font.BOLD,35));
+							label1.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,35));
 							label1.setBounds(50, -180, 1200, 700);
 							add(label1);
 							
-							ImageIcon hilion2 = new ImageIcon ("./src/image/°Ç±¹´ë Äí.png");
+							ImageIcon hilion2 = new ImageIcon ("./src/image/ê±´êµ­ëŒ€ ì¿ .png");
 							JLabel Label2 = new JLabel (hilion2);
 							Label2.setBounds(750, 200, 500, 500);
 							add(Label2);
@@ -914,7 +915,7 @@ class Panels extends JPanel
 
 							next.setPreferredSize(new Dimension(50, 50));
 							next.setBounds(530, 550, 200, 50);
-							next.setFont(new Font("¸ğ¸®½º9",Font.BOLD,30));
+							next.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,30));
 							
 							add(next);
 							
@@ -929,29 +930,29 @@ class Panels extends JPanel
 				}
 		}
 			class panel_10 extends JPanel implements ActionListener { 
-				// ½½·Ô ¸Ó½Å °ÔÀÓ ÆĞ³Î //
+				// ìŠ¬ë¡¯ ë¨¸ì‹  ê²Œì„ íŒ¨ë„ //
 				
-				// ¼ıÀÚµéÀ» ´ãÀ» ¶óº§ ¹è¿­ //
+				// ìˆ«ìë“¤ì„ ë‹´ì„ ë¼ë²¨ ë°°ì—´ //
 				   private JLabel[] Labels; 
 				   
-				// ½½·Ô ¸Ó½ÅÀ» ¸ØÃß°í µ¹¸± ¹öÆ° //
+				// ìŠ¬ë¡¯ ë¨¸ì‹ ì„ ë©ˆì¶”ê³  ëŒë¦´ ë²„íŠ¼ //
 				   private JButton button; 
 				   
-				// ¼ıÀÚµéÀ» Á¤¼ö ¹è¿­·Î //
+				// ìˆ«ìë“¤ì„ ì •ìˆ˜ ë°°ì—´ë¡œ //
 				   private int[] Numbers; 
-				// ½½·Ô ¸Ó½ÅÀ» ¸ØÃß°í µ¹¸± ¶§ ¾²ÀÌ´Â Å¸ÀÌ¸Ó //
+				// ìŠ¬ë¡¯ ë¨¸ì‹ ì„ ë©ˆì¶”ê³  ëŒë¦´ ë•Œ ì“°ì´ëŠ” íƒ€ì´ë¨¸ //
 				   private Timer timer;
-				// °á°ú °ª ³ªÅ¸³»´Â ¶óº§ //   
+				// ê²°ê³¼ ê°’ ë‚˜íƒ€ë‚´ëŠ” ë¼ë²¨ //   
 				   private JLabel result;
-				// ¸ñ¼û ³ªÅ¸³¾ ¶óº§ //
+				// ëª©ìˆ¨ ë‚˜íƒ€ë‚¼ ë¼ë²¨ //
 				   private JLabel label3; 
-				// ½½¸® ³ªÅ¸³¾ ¶óº§ //
+				// ìŠ¬ë¦¬ ë‚˜íƒ€ë‚¼ ë¼ë²¨ //
 				   private JLabel label4; 
-			   // ¸ñ¼û 
+			   // ëª©ìˆ¨ 
 				   int life = 10;
-			   // ¹öÆ° ´©¸£´Â Ä«¿îÆ®
+			   // ë²„íŠ¼ ëˆ„ë¥´ëŠ” ì¹´ìš´íŠ¸
 				   int count = 0;
-			   // ½Â¸®
+			   // ìŠ¹ë¦¬
 				   int win = 0;
 				    
 				   public panel_10() { 
@@ -960,32 +961,32 @@ class Panels extends JPanel
 				      setBackground (Color.black);
 				      
 					  
-					  JLabel label1 = new JLabel("<html>STAGE1: ½½·Ô ¸Ó½Å °ÔÀÓ<br><br>");
+					  JLabel label1 = new JLabel("<html>STAGE1: ìŠ¬ë¡¯ ë¨¸ì‹  ê²Œì„<br><br>");
 					  label1.setForeground(Color.white);
-					  label1.setFont(new Font("¸ğ¸®½º9",Font.BOLD,30));
+					  label1.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,30));
 					  label1.setBounds(500, -300, 1200, 700);
 					  add(label1);
 					  
-					  JLabel label2 = new JLabel( "<html>°ÔÀÓ ¹æ¹ı: Äí°¡ ¹ß¸íÇÑ ½½·Ô ¸Ó½Å °ÔÀÓ! <br>"
+					  JLabel label2 = new JLabel( "<html>ê²Œì„ ë°©ë²•: ì¿ ê°€ ë°œëª…í•œ ìŠ¬ë¡¯ ë¨¸ì‹  ê²Œì„! <br>"
 								+ "<html> &nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 								+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-								+ "<html> &nbsp;&nbsp&nbsp;°è¼ÓÇØ¼­ ¼ıÀÚ°¡ ¹Ù²î´Â ½½·Ô ¸Ó½ÅÀ» ¸ØÃç¼­<br>"
+								+ "<html> &nbsp;&nbsp&nbsp;ê³„ì†í•´ì„œ ìˆ«ìê°€ ë°”ë€ŒëŠ” ìŠ¬ë¡¯ ë¨¸ì‹ ì„ ë©ˆì¶°ì„œ<br>"
 								
 								+ "<html> &nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 								+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-								+ "<html> &nbsp;&nbsp&nbsp;´ÙÀ½ÀÇ Á¶ÇÕÀ» 6¹øÀ» ¸¸µé¸é Å¬¸®¾î!<br>"
+								+ "<html> &nbsp;&nbsp&nbsp;ë‹¤ìŒì˜ ì¡°í•©ì„ 6ë²ˆì„ ë§Œë“¤ë©´ í´ë¦¬ì–´!<br>"
 								
 								+ "<html> &nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 								+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-								+ "<html> &nbsp;&nbsp&nbsp;(´Ü, JackpotÀÇ °æ¿ì ¹Ù·Î Å¬¸®¾î!)<br>"
+								+ "<html> &nbsp;&nbsp&nbsp;(ë‹¨, Jackpotì˜ ê²½ìš° ë°”ë¡œ í´ë¦¬ì–´!)<br>"
 								
                                 + "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
                                 + "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-                                + "<html> &nbsp;&nbsp&nbsp;¸ñ¼ûÀº ÃÑ 10!<br>"
+                                + "<html> &nbsp;&nbsp&nbsp;ëª©ìˆ¨ì€ ì´ 10!<br>"
                                 
 	                            + "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 	                            + "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-                                + "<html> &nbsp;&nbsp&nbsp;Áú ¶§¸¶´Ù 1¾¿ Â÷°¨!<br><br><br><br><br>"
+                                + "<html> &nbsp;&nbsp&nbsp;ì§ˆ ë•Œë§ˆë‹¤ 1ì”© ì°¨ê°!<br><br><br><br><br>"
 								
 								+ "<html> &nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 								+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
@@ -993,60 +994,60 @@ class Panels extends JPanel
 								
                                 + "<html> &nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
                                 + "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-                                + "<html> &nbsp;&nbsp&nbsp;Jackpot: ¼ıÀÚ°¡ 777ÀÎ °æ¿ì<br>"
+                                + "<html> &nbsp;&nbsp&nbsp;Jackpot: ìˆ«ìê°€ 777ì¸ ê²½ìš°<br>"
 
 								+ "<html> &nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 								+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-								+ "<html> &nbsp;&nbsp&nbsp;One pair: ¼ıÀÚ°¡ ÇÑ ½ÖÀÌ °°Àº °æ¿ì<br>"
+								+ "<html> &nbsp;&nbsp&nbsp;One pair: ìˆ«ìê°€ í•œ ìŒì´ ê°™ì€ ê²½ìš°<br>"
 								
 								+ "<html> &nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 								+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-								+ "<html> &nbsp;&nbsp&nbsp;Straight: ¼ıÀÚ°¡ Â÷·Ê·Î ÀÌ¾îÁö´Â °æ¿ì<br>" 
+								+ "<html> &nbsp;&nbsp&nbsp;Straight: ìˆ«ìê°€ ì°¨ë¡€ë¡œ ì´ì–´ì§€ëŠ” ê²½ìš°<br>" 
 								
 								+ "<html> &nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 								+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-								+ "<html> &nbsp;&nbsp&nbsp;Reverse: ¼ıÀÚ°¡ ¹İ´ë·Î ÀÌ¾îÁö´Â °æ¿ì<br>" 
+								+ "<html> &nbsp;&nbsp&nbsp;Reverse: ìˆ«ìê°€ ë°˜ëŒ€ë¡œ ì´ì–´ì§€ëŠ” ê²½ìš°<br>" 
 								
 								+ "<html> &nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 								+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-								+ "<html> &nbsp;&nbsp&nbsp;Trips: 3°³ÀÇ ¼ıÀÚ°¡ ¸ğµÎ °°Àº °æ¿ì<br>" 
+								+ "<html> &nbsp;&nbsp&nbsp;Trips: 3ê°œì˜ ìˆ«ìê°€ ëª¨ë‘ ê°™ì€ ê²½ìš°<br>" 
 								
 								+ "<html> &nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 								+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-								+ "<html> &nbsp;&nbsp&nbsp;Odd nums: ¼ıÀÚ°¡ ¸ğµÎ È¦¼öÀÎ °æ¿ì<br>" 
+								+ "<html> &nbsp;&nbsp&nbsp;Odd nums: ìˆ«ìê°€ ëª¨ë‘ í™€ìˆ˜ì¸ ê²½ìš°<br>" 
 								
 								+ "<html> &nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 								+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-								+ "<html> &nbsp;&nbsp&nbsp;Even nums: ¼ıÀÚ°¡ ¸ğµÎ Â¦¼öÀÎ °æ¿ì<br>" 
+								+ "<html> &nbsp;&nbsp&nbsp;Even nums: ìˆ«ìê°€ ëª¨ë‘ ì§ìˆ˜ì¸ ê²½ìš°<br>" 
 								+ "");
 						label2.setForeground(Color.white);
-						label2.setFont(new Font("¸ğ¸®½º9",Font.BOLD,20));
+						label2.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,20));
 						label2.setBounds(30, -75, 1200, 700);
 						add(label2);
 						
 						label4 = new JLabel("life: " + life );
 						label4.setForeground(Color.white);
-						label4.setFont(new Font("¸ğ¸®½º9",Font.BOLD,50));
+						label4.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,50));
 						label4.setBounds(1106, 10, 300, 100);
 						add(label4);
 
 						label3 = new JLabel("win: " + win );
 						label3.setForeground(Color.white);
-						label3.setFont(new Font("¸ğ¸®½º9",Font.BOLD,50));
+						label3.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,50));
 						label3.setBounds(1100, 60, 300, 100);
 						add(label3);
 
-					// 3ÀÚ¸® ¼ıÀÚ¸¦ ÅØ½ºÅä ³ªÅ¸³¾ ¶óº§ º£¿­ 
+					// 3ìë¦¬ ìˆ«ìë¥¼ í…ìŠ¤í†  ë‚˜íƒ€ë‚¼ ë¼ë²¨ ë² ì—´ 
 				      Labels = new JLabel[3]; 
-				    // 3ÀÚ¸® ¼ıÀÚ ¹è¿­
+				    // 3ìë¦¬ ìˆ«ì ë°°ì—´
 				      Numbers = new int[3];
 				   
 				      
-                    // 3ÀÚ¸® ¼ıÀÚ ÃÊ±âÈ­ ¹× ¹èÄ¡ //
+                    // 3ìë¦¬ ìˆ«ì ì´ˆê¸°í™” ë° ë°°ì¹˜ //
 				      for (int i = 0; i < 3; i++) { 
 				         Labels[i] = new JLabel("" + Numbers[i]); 
 				         Labels[i].setForeground(Color.white);
-				         Labels[i].setFont(new Font("¸ğ¸®½º9",Font.BOLD,180));
+				         Labels[i].setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,180));
 						 Labels[i].setBounds((i*100)+500, 100, 200, 200);
 
 				        add(Labels[i]);
@@ -1055,25 +1056,25 @@ class Panels extends JPanel
 				      
 				      
 				     
-				      // stop ¹öÆ°À» ´©¸¦ ¶§±îÁö ¼ıÀÚ°¡ ¹Ù²î´Â ½Ã°£ º¯¼ö
+				      // stop ë²„íŠ¼ì„ ëˆ„ë¥¼ ë•Œê¹Œì§€ ìˆ«ìê°€ ë°”ë€ŒëŠ” ì‹œê°„ ë³€ìˆ˜
 				       timer = new Timer( 100, new TimerListener() );
-				      // °è¼ÓÇØ¼­ ¼ıÀÚ º¯°æ
+				      // ê³„ì†í•´ì„œ ìˆ«ì ë³€ê²½
 				       timer.start();
 
-                     // stop ¹öÆ°
+                     // stop ë²„íŠ¼
 				      button = new JButton("Stop"); 
-				      button.setFont(new Font("¸ğ¸®½º9",Font.BOLD,50));
+				      button.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,50));
 				      button.setBounds(510, 550, 300, 60);
 
 				     add(button);
                       
-				     // ¹öÆ° ´­·¶À» ¶§ ÀÌº¥Æ® ¹ß»ı
+				     // ë²„íŠ¼ ëˆŒë €ì„ ë•Œ ì´ë²¤íŠ¸ ë°œìƒ
 				      button.addActionListener(this); 
 				      
-				      // ¸ØÃèÀ» ¶§ °á°ú
+				      // ë©ˆì·„ì„ ë•Œ ê²°ê³¼
 				        result = new JLabel("Combination", JLabel.CENTER);
 				        result.setForeground(Color.white);
-				        result.setFont(new Font("¸ğ¸®½º9",Font.BOLD,70));
+				        result.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,70));
 				        result.setBounds(410, 350, 500, 200);
 						add(result);
 						
@@ -1084,49 +1085,49 @@ class Panels extends JPanel
 
 
 				   public void actionPerformed(ActionEvent event) { 
-					   // ¹öÆ° ´©¸£´Â È½¼ö 
+					   // ë²„íŠ¼ ëˆ„ë¥´ëŠ” íšŸìˆ˜ 
 					   count++;
 					  
 						if (count %2 != 0) 
 						{
 							
-						   // ¼ıÀÚ º¯°æ ¸ØÃß±â
+						   // ìˆ«ì ë³€ê²½ ë©ˆì¶”ê¸°
 						   timer.stop();
-						   // ¹öÆ° ÅØ½ºÆ®¸¦ ´Ù½Ã µ¹¾Æ°¥ ¼ö ÀÖ°Ô spin!À¸·Î ¾÷µ¥ÀÌÆ®
+						   // ë²„íŠ¼ í…ìŠ¤íŠ¸ë¥¼ ë‹¤ì‹œ ëŒì•„ê°ˆ ìˆ˜ ìˆê²Œ spin!ìœ¼ë¡œ ì—…ë°ì´íŠ¸
 					       button.setText("Spin!");
 					       
-					       // Jackpot: 777ÀÇ °æ¿ì
+					       // Jackpot: 777ì˜ ê²½ìš°
 					       if ( ( Numbers[0] == 7  ) &&
 						    		( Numbers[1] == 7 ) &&
 						    		( Numbers[2] == 7 ))
 						       {
 						    	   result.setText("Jackpot");
-						    	   // ½Â¸® +1
+						    	   // ìŠ¹ë¦¬ +1
 						    	   win = 6;
-						    	   // ÅØ½ºÆ® ¾÷µ¥ÀÌÆ®
+						    	   // í…ìŠ¤íŠ¸ ì—…ë°ì´íŠ¸
 						    	   label3.setText("win: " + +win);
-						    	   // ½Â¸®(Å¬¸®¾î Á¶°Ç) 5°¡ µÇ¸é ´ÙÀ½ ÆäÀÌÁö·Î ÀÌµ¿
+						    	   // ìŠ¹ë¦¬(í´ë¦¬ì–´ ì¡°ê±´) 5ê°€ ë˜ë©´ ë‹¤ìŒ í˜ì´ì§€ë¡œ ì´ë™
 						    	   if (win == 6) 
 										deck.next(cards);
 						    	   
 						       }
 					       
-					       // Trips: ÀÚ¸® ¼ıÀÚ°¡ ¸ğµÎ °°Àº °æ¿ì
+					       // Trips: ìë¦¬ ìˆ«ìê°€ ëª¨ë‘ ê°™ì€ ê²½ìš°
 					       else if ( ( Numbers[0] == Numbers[1]  ) &&
 						    		( Numbers[1] == Numbers[2] ) )
 						       {
 						    	   result.setText("Trips");
-						    	   // ½Â¸® +1
+						    	   // ìŠ¹ë¦¬ +1
 						    	   win++;
-						    	   // ÅØ½ºÆ® ¾÷µ¥ÀÌÆ®
+						    	   // í…ìŠ¤íŠ¸ ì—…ë°ì´íŠ¸
 						    	   label3.setText("win: " + +win);
-						    	   // ½Â¸®(Å¬¸®¾î Á¶°Ç) 5°¡ µÇ¸é ´ÙÀ½ ÆäÀÌÁö·Î ÀÌµ¿
+						    	   // ìŠ¹ë¦¬(í´ë¦¬ì–´ ì¡°ê±´) 5ê°€ ë˜ë©´ ë‹¤ìŒ í˜ì´ì§€ë¡œ ì´ë™
 						    	   if (win == 6) 
 										deck.next(cards);
 						    	   
 						       }
 					      
-					      // one pair: ¼ıÀÚ°¡ ÇÑ ½ÖÀÌ °°Àº °æ¿ì
+					      // one pair: ìˆ«ìê°€ í•œ ìŒì´ ê°™ì€ ê²½ìš°
 					       else if ( ( Numbers[0] == Numbers[1] ) ||
 					    		( Numbers[1] == Numbers[2] ) ||  
 					    		( Numbers[0] == Numbers[2] ) ) 
@@ -1138,7 +1139,7 @@ class Panels extends JPanel
 									deck.next(cards);
 					        	
 					       }
-					       // Straight: ¼ıÀÚ°¡ Â÷·Ê·Î ÀÌ¾îÁö´Â °æ¿ì
+					       // Straight: ìˆ«ìê°€ ì°¨ë¡€ë¡œ ì´ì–´ì§€ëŠ” ê²½ìš°
 					       else  if ( ( Numbers[0] + 1 == Numbers[1]  ) &&
 						    		( Numbers[1] + 1 == Numbers[2] ) )
 						       {
@@ -1148,7 +1149,7 @@ class Panels extends JPanel
 						    	   if (win == 6) 
 										deck.next(cards);
 						       }
-					       // Reverse: ¼ıÀÚ°¡ ¹İ´ë·Î ÀÌ¾îÁö´Â °æ¿ì
+					       // Reverse: ìˆ«ìê°€ ë°˜ëŒ€ë¡œ ì´ì–´ì§€ëŠ” ê²½ìš°
 					       else  if ( ( Numbers[2] + 1 == Numbers[1]  ) &&
 						    		( Numbers[1] + 1 == Numbers[0] ) )
 						       {
@@ -1158,7 +1159,7 @@ class Panels extends JPanel
 						    	   if (win == 6) 
 										deck.next(cards);
 						       }
-					      // Odd nums: ¼ıÀÚ°¡ ¸ğµÎ È¦¼ö
+					      // Odd nums: ìˆ«ìê°€ ëª¨ë‘ í™€ìˆ˜
 					       else if ( ( Numbers[0] % 2 != 0 ) &&
 						    		( Numbers[1] % 2 != 0 ) &&
 						    		( Numbers[2] % 2 != 0 ) ) 
@@ -1169,7 +1170,7 @@ class Panels extends JPanel
 						    	   if (win == 6) 
 										deck.next(cards);
 						       }
-					       // Even nums: ¼ıÀÚ°¡ ¸ğµÎ Â¦¼ö
+					       // Even nums: ìˆ«ìê°€ ëª¨ë‘ ì§ìˆ˜
 					       else if ( ( Numbers[0] % 2 == 0 ) &&
 						    		( Numbers[1] % 2 == 0 ) &&
 						    		( Numbers[2] % 2 == 0 ) ) 
@@ -1180,23 +1181,23 @@ class Panels extends JPanel
 						    	   if (win == 6) 
 										deck.next(cards);
 						       }
-					      // Miss: Á¶ÇÕÀ» ¼º°ø½ÃÅ°Áö ¸øÇÑ °æ¿ì
+					      // Miss: ì¡°í•©ì„ ì„±ê³µì‹œí‚¤ì§€ ëª»í•œ ê²½ìš°
 					       else
 					       {
 					    	   
-					    	   // ¸ñ¼û(³²Àº ±âÈ¸) 1Â÷°¨
+					    	   // ëª©ìˆ¨(ë‚¨ì€ ê¸°íšŒ) 1ì°¨ê°
 							   life--;
-							   // ÅØ½ºÆ® ¾÷µ¥ÀÌÆ®
+							   // í…ìŠ¤íŠ¸ ì—…ë°ì´íŠ¸
 							   label4.setText("life: "+ life);
 					    	  
 					    	   result.setText("Miss");
 					    	   
-					    	  // ¸ñ¼û(³²Àº ±âÈ¸) 0ÀÏ °æ¿ì
+					    	  // ëª©ìˆ¨(ë‚¨ì€ ê¸°íšŒ) 0ì¼ ê²½ìš°
 					    	   if (life == 0) 
 								{
-						    	   // Àü ÆäÀÌÁö·Î µ¹¾Æ°¡±â
+						    	   // ì „ í˜ì´ì§€ë¡œ ëŒì•„ê°€ê¸°
 									deck.previous(cards);
-									// ¸ñ¼û, ½Â¸® ÃÊ±âÈ­
+									// ëª©ìˆ¨, ìŠ¹ë¦¬ ì´ˆê¸°í™”
 									life = 10;
 									win = 0;
 									
@@ -1211,11 +1212,11 @@ class Panels extends JPanel
 					   else
 					   {
 					   
-					   // ¼ıÀÚ °è¼ÓÇØ¼­ º¯°æµÇ°Ô Å¸ÀÌ¸Ó ½ºÅ¸Æ®
+					   // ìˆ«ì ê³„ì†í•´ì„œ ë³€ê²½ë˜ê²Œ íƒ€ì´ë¨¸ ìŠ¤íƒ€íŠ¸
 					   timer.start();
-					   // ¹öÆ° ¼ıÀÚ ¸ØÃß°Ô Stop!À¸·Î ¾÷µ¥ÀÌÆ®
+					   // ë²„íŠ¼ ìˆ«ì ë©ˆì¶”ê²Œ Stop!ìœ¼ë¡œ ì—…ë°ì´íŠ¸
 					   button.setText("Stop!");
-					   // Á¶ÇÕ °á°ú ÅØ½ºÆ® ÃÊ±âÈ­
+					   // ì¡°í•© ê²°ê³¼ í…ìŠ¤íŠ¸ ì´ˆê¸°í™”
 					   result.setText("Combination");
 					   }
 				      
@@ -1225,7 +1226,7 @@ class Panels extends JPanel
 						public void actionPerformed( ActionEvent event ) 
 						{
 							
-							// ¼ıÀÚ°¡ °è¼ÓÇØ¼­ ·£´ıÀ¸·Î º¯°æ
+							// ìˆ«ìê°€ ê³„ì†í•´ì„œ ëœë¤ìœ¼ë¡œ ë³€ê²½
 							   
 								
 							for (int i = 0; i < 3; i++) { 
@@ -1252,17 +1253,17 @@ class Panels extends JPanel
 					        setLayout(null);
 					        
 							setBackground (Color.black);
-							JLabel label1 = new JLabel("<html>[Äí]: ´ë´ÜÇØ ¼ö¹¶Äï!! À½¸Ş~<br>"
-									+ "<html>[Äí]: ³» °ÔÀÓÀ» ÇØÁáÀ¸´Ï ????¸¦ ¾Ë·ÁÁÙ°Ô<br>"
-									+ "<html>[Äí]: ????´Â G418ÀÌ¾ß ³ª ¿À´Ã Á¹¾÷½Ä ÀÖ¾î¼­ ÀÌ¸¸ °¡º¼°Ô »ç¿ä³ª¶ó~<br>"
-									+ "<html>Äí´Â Á¹¾÷ÁõÀÌ »ó¸í´ë °øÇĞ°ü G418¿¡ ÀÖ´Ù°í ÇÏ¿´´Ù<br>"
-									+ "<html>Áö±İ ´çÀå ´Ş·Á°¡º¸ÀÚ!<br>");
+							JLabel label1 = new JLabel("<html>[ì¿ ]: ëŒ€ë‹¨í•´ ìˆ˜ë­‰ì¿¤!! ìŒë©”~<br>"
+									+ "<html>[ì¿ ]: ë‚´ ê²Œì„ì„ í•´ì¤¬ìœ¼ë‹ˆ ????ë¥¼ ì•Œë ¤ì¤„ê²Œ<br>"
+									+ "<html>[ì¿ ]: ????ëŠ” G418ì´ì•¼ ë‚˜ ì˜¤ëŠ˜ ì¡¸ì—…ì‹ ìˆì–´ì„œ ì´ë§Œ ê°€ë³¼ê²Œ ì‚¬ìš”ë‚˜ë¼~<br>"
+									+ "<html>ì¿ ëŠ” ì¡¸ì—…ì¦ì´ ìƒëª…ëŒ€ ê³µí•™ê´€ G418ì— ìˆë‹¤ê³  í•˜ì˜€ë‹¤<br>"
+									+ "<html>ì§€ê¸ˆ ë‹¹ì¥ ë‹¬ë ¤ê°€ë³´ì!<br>");
 							label1.setForeground(Color.white);
-							label1.setFont(new Font("¸ğ¸®½º9",Font.BOLD,35));
+							label1.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,35));
 							label1.setBounds(50, -180, 1200, 700);
 							add(label1);
 							
-							ImageIcon hilion2 = new ImageIcon ("./src/image/°Ç±¹´ë Äí2.png");
+							ImageIcon hilion2 = new ImageIcon ("./src/image/ê±´êµ­ëŒ€ ì¿ 2.png");
 							JLabel Label2 = new JLabel (hilion2);
 							Label2.setBounds(750, 200, 500, 500);
 							add(Label2);
@@ -1272,7 +1273,7 @@ class Panels extends JPanel
 
 							next.setPreferredSize(new Dimension(50, 50));
 							next.setBounds(530, 550, 200, 50);
-							next.setFont(new Font("¸ğ¸®½º9",Font.BOLD,30));
+							next.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,30));
 							
 							add(next);
 							
@@ -1294,11 +1295,11 @@ class Panels extends JPanel
 						        setLayout(null);
 						        
 								setBackground (Color.black);
-								JLabel label1 = new JLabel("<html>G418¿¡ ´Ş·Á°¡ ¼ö¹¶ÀÌ´Â ÀÌ°÷Àú°÷À» »ìÆñ´Ù<br>"
-										+ "<html>±×·¯´Ù Ä¥ÆÇ ¹Ø¿¡ ºû³ª´Â ¹«¾ğ°¡¸¦ ¹ß°ßÇÏ°Ô µÇ¾ú´Ù<br>"
-										+ "<html>µåµğ¾î ¼ö¹¶ÀÌ´Â °íµÈ ¿©Á¤ ³¡¿¡ ÀÒ¾î¹ö¸° Á¹¾÷ÁõÀ» Ã£°Ô µÇ¾ú´Ù!!!!<br>");
+								JLabel label1 = new JLabel("<html>G418ì— ë‹¬ë ¤ê°€ ìˆ˜ë­‰ì´ëŠ” ì´ê³³ì €ê³³ì„ ì‚´íˆë‹¤<br>"
+										+ "<html>ê·¸ëŸ¬ë‹¤ ì¹ íŒ ë°‘ì— ë¹›ë‚˜ëŠ” ë¬´ì–¸ê°€ë¥¼ ë°œê²¬í•˜ê²Œ ë˜ì—ˆë‹¤<br>"
+										+ "<html>ë“œë””ì–´ ìˆ˜ë­‰ì´ëŠ” ê³ ëœ ì—¬ì • ëì— ìƒì–´ë²„ë¦° ì¡¸ì—…ì¦ì„ ì°¾ê²Œ ë˜ì—ˆë‹¤!!!!<br>");
 								label1.setForeground(Color.white);
-								label1.setFont(new Font("¸ğ¸®½º9",Font.BOLD,35));
+								label1.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,35));
 								label1.setBounds(50, -180, 1200, 700);
 								add(label1);
 								
@@ -1327,7 +1328,7 @@ class Panels extends JPanel
 
 								next.setPreferredSize(new Dimension(50, 50));
 								next.setBounds(530, 550, 200, 50);
-								next.setFont(new Font("¸ğ¸®½º9",Font.BOLD,30));
+								next.setFont(new Font("ëª¨ë¦¬ìŠ¤9",Font.BOLD,30));
 								
 								add(next);
 								
