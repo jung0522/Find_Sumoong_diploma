@@ -986,7 +986,7 @@ class Panels extends JPanel
                                 
 	                            + "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 	                            + "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
-                                + "<html> &nbsp;&nbsp&nbsp;질 때마다 1씩 차감!<br><br><br><br><br>"
+                                + "<html> &nbsp;&nbsp&nbsp;못 만들 때마다 1씩 차감!<br><br><br><br><br>"
 								
 								+ "<html> &nbsp&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
 								+ "<html> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
