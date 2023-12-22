@@ -961,7 +961,7 @@ class Panels extends JPanel
 				      setBackground (Color.black);
 				      
 					  
-					  JLabel label1 = new JLabel("<html>STAGE1: 슬롯 머신 게임<br><br>");
+					  JLabel label1 = new JLabel("<html>STAGE3: 슬롯 머신 게임<br><br>");
 					  label1.setForeground(Color.white);
 					  label1.setFont(new Font("모리스9",Font.BOLD,30));
 					  label1.setBounds(500, -300, 1200, 700);
